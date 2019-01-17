@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace SumOfOdds
 {
-    class SumOfOdds
+    public class SumOfOdds
     {
 
         // Given an integer from the user return the sum of all odd integers up to that number
         // int must be >0 and <256
         // ex. passed 5 then sum = 1+3+5
-        static int sumOdds(int userNum)
+        public static int sumOdds(int userNum)
         {
             if (userNum > 256 || userNum < 0)
             {

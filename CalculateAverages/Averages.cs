@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace CalculateAverages
 {
-    class Averages
+    public class Averages
     {
 
-        static double TestAverages(double A, double B, double C)
+        public static double TestAverages(double A, double B, double C)
         {
             int i = 3;
             double sum;
