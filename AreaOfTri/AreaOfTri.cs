@@ -32,7 +32,7 @@ namespace AreaOfTri
         static void Main(string[] args)
         {
             Console.WriteLine("AreaOfTri.Main()");
-
+                                
            
 
             Console.ReadKey();

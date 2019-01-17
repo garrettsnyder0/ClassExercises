@@ -20,7 +20,7 @@ namespace CalculateAverages
         }
 
         static void Main(string[] args)
-        {
+        {                       
             Console.WriteLine("Averages.Main()");
 
             double avg = TestAverages(90.0, 95.0, 85.0);
