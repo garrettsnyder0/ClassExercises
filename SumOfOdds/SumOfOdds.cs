@@ -31,7 +31,7 @@ namespace SumOfOdds
             return sum;
         }
 
-        //test
+        
         static void Main(string[] args)
         {
             Console.WriteLine("From SumOfOdds.Main");
