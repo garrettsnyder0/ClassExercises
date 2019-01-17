@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CalculateAverages\CalculateAverages.csproj">
+      <Project>{23BABD87-691F-478C-B07C-00197E4C4231}</Project>
+      <Name>CalculateAverages</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

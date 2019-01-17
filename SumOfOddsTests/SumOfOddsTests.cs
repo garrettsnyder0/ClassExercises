@@ -31,5 +31,12 @@ namespace SumOfOdds.Tests
         {
             Assert.AreEqual(25, SumOfOdds.sumOdds(9));
         }
+
+        [TestMethod()]
+        public void sumOddsTest0()
+        {
+            Assert.AreEqual(0, SumOfOdds.sumOdds(0));
+        }
+       
     }
 }

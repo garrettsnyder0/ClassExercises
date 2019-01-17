@@ -35,10 +35,14 @@ namespace SumOfOdds
         static void Main(string[] args)
         {
             Console.WriteLine("From SumOfOdds.Main");
+
+            /* No longer needed now with test file
             Console.WriteLine(sumOdds(5));
             Console.WriteLine(sumOdds(9));
             Console.WriteLine(sumOdds(-1));
             Console.WriteLine(sumOdds(257));
+            */
+
             Console.ReadKey();
         }
     }
