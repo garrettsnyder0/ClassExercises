@@ -9,11 +9,11 @@ namespace OptionalParameters
     class OptionalParameters
     {
 
-       
+
 
         public static void SingASong(string Title, string key = "C", int numTimes = 1)
         {
-            for(int i = 0; i < numTimes; i++)
+            for (int i = 0; i < numTimes; i++)
             {
                 Console.WriteLine($"{Title} in {key}!!");
             }
@@ -21,10 +21,10 @@ namespace OptionalParameters
 
         //Overload one possible option of optional parameter method
         //Can be used if you want a different output for if they passed only certain input
-       /* public static void SingASong(string Title, string key)
+        /* public static void SingASong(string Title, string key)
         {
-            Console.WriteLine($"{Title} in {key}!!");
-            Console.WriteLine("done in overloaded method");
+        Console.WriteLine($"{Title} in {key}!!");
+        Console.WriteLine("done in overloaded method");
         }*/
 
         //Passing parameters in order of string, int is not allowed with just above method that has optional parameters
