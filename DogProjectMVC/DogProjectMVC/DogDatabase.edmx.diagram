@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c835c07cf59b41d096f9fd4c8190b278" Name="Diagram1" ZoomLevel="79">
+        <EntityTypeShape EntityType="DogProjectModel.Adaptability" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.Exercise" Width="1.5" PointX="6.875" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.Friendliness" Width="1.5" PointX="5.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.Health" Width="1.5" PointX="11.125" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.OverallInformation" Width="1.5" PointX="6.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.Training" Width="1.5" PointX="9" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.Location" Width="1.5" PointX="0.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.Rating" Width="1.5" PointX="2.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.DogInfo" Width="1.5" PointX="7.875" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.Medical" Width="1.5" PointX="7.875" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DogProjectModel.User" Width="1.5" PointX="5.625" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="DogProjectModel.FK_BreedInfo_Adaptability" ManuallyRouted="false" />
+        <AssociationConnector Association="DogProjectModel.FK_BreedInfo_Exercise" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="DogProjectModel.FK_BreedInfo_Friendliness" ManuallyRouted="false" />
+        <AssociationConnector Association="DogProjectModel.FK_BreedInfo_Health" ManuallyRouted="false" />
+        <AssociationConnector Association="DogProjectModel.FK_BreedInfo_Training" ManuallyRouted="false" ></AssociationConnector>
+        <AssociationConnector Association="DogProjectModel.FK_Locations_Ratings" ManuallyRouted="false" />
+        <AssociationConnector Association="DogProjectModel.FK_Personal_DogInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="DogProjectModel.FK_Personal_Medical" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

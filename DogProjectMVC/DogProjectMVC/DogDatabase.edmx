@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DogProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adaptability">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="int" Nullable="false" />
+          <Property Name="overall" Type="int" Nullable="false" />
+          <Property Name="apartment" Type="int" Nullable="false" />
+          <Property Name="noviceOwners" Type="int" Nullable="false" />
+          <Property Name="sensitivity" Type="int" Nullable="false" />
+          <Property Name="alone" Type="int" Nullable="false" />
+          <Property Name="coldWeather" Type="int" Nullable="false" />
+          <Property Name="hotWeather" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="int" Nullable="false" />
+          <Property Name="overall" Type="int" Nullable="false" />
+          <Property Name="energyLevel" Type="int" Nullable="false" />
+          <Property Name="intensity" Type="int" Nullable="false" />
+          <Property Name="exerciseNeed" Type="int" Nullable="false" />
+          <Property Name="playfulness" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Friendliness">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="int" Nullable="false" />
+          <Property Name="overall" Type="int" Nullable="false" />
+          <Property Name="withFamily" Type="int" Nullable="false" />
+          <Property Name="withKids" Type="int" Nullable="false" />
+          <Property Name="otherDogs" Type="int" Nullable="false" />
+          <Property Name="towardStrangers" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Health">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="int" Nullable="false" />
+          <Property Name="overall" Type="int" Nullable="false" />
+          <Property Name="general" Type="int" Nullable="false" />
+          <Property Name="weightGain" Type="int" Nullable="false" />
+          <Property Name="size" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OverallInformation">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="int" Nullable="false" />
+          <Property Name="breed" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="adaptability" Type="int" Nullable="false" />
+          <Property Name="friendliness" Type="int" Nullable="false" />
+          <Property Name="health" Type="int" Nullable="false" />
+          <Property Name="grooming" Type="int" Nullable="false" />
+          <Property Name="training" Type="int" Nullable="false" />
+          <Property Name="exercise" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="int" Nullable="false" />
+          <Property Name="overall" Type="int" Nullable="false" />
+          <Property Name="easiness" Type="int" Nullable="false" />
+          <Property Name="intelligence" Type="int" Nullable="false" />
+          <Property Name="mouthiness" Type="int" Nullable="false" />
+          <Property Name="preyDrive" Type="int" Nullable="false" />
+          <Property Name="bark" Type="int" Nullable="false" />
+          <Property Name="wanderlust" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Locations">
+          <Key>
+            <PropertyRef Name="locationName" />
+          </Key>
+          <Property Name="locationName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="zipCode" Type="int" Nullable="false" />
+          <Property Name="typeOfLoc" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="aveRate" Type="int" />
+        </EntityType>
+        <EntityType Name="Ratings">
+          <Key>
+            <PropertyRef Name="locationName" />
+          </Key>
+          <Property Name="locationName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="rating" Type="int" />
+          <Property Name="review" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="DogInfo">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="dogName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="DogBreed" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="dogAge" Type="int" Nullable="false" />
+          <Property Name="dogWeight" Type="int" Nullable="false" />
+          <Property Name="dogHeight" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Medical">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="dogName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="medName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="lastDate" Type="date" Nullable="false" />
+          <Property Name="dogWeight" Type="int" Nullable="false" />
+          <Property Name="dogHeight" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="32" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BreedInfo_Adaptability">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Adaptability" Type="Self.Adaptability" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Adaptability">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Exercise">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Friendliness">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Friendliness" Type="Self.Friendliness" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Friendliness">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Health">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Health" Type="Self.Health" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Health">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Training">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locations_Ratings">
+          <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+          <End Role="Ratings" Type="Self.Ratings" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="locationName" />
+            </Principal>
+            <Dependent Role="Ratings">
+              <PropertyRef Name="locationName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_DogInfo">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="DogInfo" Type="Self.DogInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="DogInfo">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Medical">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Medical" Type="Self.Medical" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Medical">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DogProjectModelStoreContainer">
+          <EntitySet Name="Adaptability" EntityType="Self.Adaptability" Schema="BreedInfo" store:Type="Tables" />
+          <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="BreedInfo" store:Type="Tables" />
+          <EntitySet Name="Friendliness" EntityType="Self.Friendliness" Schema="BreedInfo" store:Type="Tables" />
+          <EntitySet Name="Health" EntityType="Self.Health" Schema="BreedInfo" store:Type="Tables" />
+          <EntitySet Name="OverallInformation" EntityType="Self.OverallInformation" Schema="BreedInfo" store:Type="Tables" />
+          <EntitySet Name="Training" EntityType="Self.Training" Schema="BreedInfo" store:Type="Tables" />
+          <EntitySet Name="Locations" EntityType="Self.Locations" Schema="Locations" store:Type="Tables" />
+          <EntitySet Name="Ratings" EntityType="Self.Ratings" Schema="Locations" store:Type="Tables" />
+          <EntitySet Name="DogInfo" EntityType="Self.DogInfo" Schema="Personal" store:Type="Tables" />
+          <EntitySet Name="Medical" EntityType="Self.Medical" Schema="Personal" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="Personal" store:Type="Tables" />
+          <AssociationSet Name="FK_BreedInfo_Adaptability" Association="Self.FK_BreedInfo_Adaptability">
+            <End Role="OverallInformation" EntitySet="OverallInformation" />
+            <End Role="Adaptability" EntitySet="Adaptability" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Exercise" Association="Self.FK_BreedInfo_Exercise">
+            <End Role="OverallInformation" EntitySet="OverallInformation" />
+            <End Role="Exercise" EntitySet="Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Friendliness" Association="Self.FK_BreedInfo_Friendliness">
+            <End Role="OverallInformation" EntitySet="OverallInformation" />
+            <End Role="Friendliness" EntitySet="Friendliness" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Health" Association="Self.FK_BreedInfo_Health">
+            <End Role="OverallInformation" EntitySet="OverallInformation" />
+            <End Role="Health" EntitySet="Health" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Training" Association="Self.FK_BreedInfo_Training">
+            <End Role="OverallInformation" EntitySet="OverallInformation" />
+            <End Role="Training" EntitySet="Training" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations_Ratings" Association="Self.FK_Locations_Ratings">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Ratings" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_DogInfo" Association="Self.FK_Personal_DogInfo">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DogInfo" EntitySet="DogInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Medical" Association="Self.FK_Personal_Medical">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Medical" EntitySet="Medical" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DogProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adaptability">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="Int32" Nullable="false" />
+          <Property Name="overall" Type="Int32" Nullable="false" />
+          <Property Name="apartment" Type="Int32" Nullable="false" />
+          <Property Name="noviceOwners" Type="Int32" Nullable="false" />
+          <Property Name="sensitivity" Type="Int32" Nullable="false" />
+          <Property Name="alone" Type="Int32" Nullable="false" />
+          <Property Name="coldWeather" Type="Int32" Nullable="false" />
+          <Property Name="hotWeather" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OverallInformation" Relationship="Self.FK_BreedInfo_Adaptability" FromRole="Adaptability" ToRole="OverallInformation" />
+        </EntityType>
+        <EntityType Name="Exercise">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="Int32" Nullable="false" />
+          <Property Name="overall" Type="Int32" Nullable="false" />
+          <Property Name="energyLevel" Type="Int32" Nullable="false" />
+          <Property Name="intensity" Type="Int32" Nullable="false" />
+          <Property Name="exerciseNeed" Type="Int32" Nullable="false" />
+          <Property Name="playfulness" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OverallInformation" Relationship="Self.FK_BreedInfo_Exercise" FromRole="Exercise" ToRole="OverallInformation" />
+        </EntityType>
+        <EntityType Name="Friendliness">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="Int32" Nullable="false" />
+          <Property Name="overall" Type="Int32" Nullable="false" />
+          <Property Name="withFamily" Type="Int32" Nullable="false" />
+          <Property Name="withKids" Type="Int32" Nullable="false" />
+          <Property Name="otherDogs" Type="Int32" Nullable="false" />
+          <Property Name="towardStrangers" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OverallInformation" Relationship="Self.FK_BreedInfo_Friendliness" FromRole="Friendliness" ToRole="OverallInformation" />
+        </EntityType>
+        <EntityType Name="Health">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="Int32" Nullable="false" />
+          <Property Name="overall" Type="Int32" Nullable="false" />
+          <Property Name="general" Type="Int32" Nullable="false" />
+          <Property Name="weightGain" Type="Int32" Nullable="false" />
+          <Property Name="size" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OverallInformation" Relationship="Self.FK_BreedInfo_Health" FromRole="Health" ToRole="OverallInformation" />
+        </EntityType>
+        <EntityType Name="OverallInformation">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="Int32" Nullable="false" />
+          <Property Name="breed" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adaptability" Type="Int32" Nullable="false" />
+          <Property Name="friendliness" Type="Int32" Nullable="false" />
+          <Property Name="health" Type="Int32" Nullable="false" />
+          <Property Name="grooming" Type="Int32" Nullable="false" />
+          <Property Name="training" Type="Int32" Nullable="false" />
+          <Property Name="exercise" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adaptability1" Relationship="Self.FK_BreedInfo_Adaptability" FromRole="OverallInformation" ToRole="Adaptability" />
+          <NavigationProperty Name="Exercise1" Relationship="Self.FK_BreedInfo_Exercise" FromRole="OverallInformation" ToRole="Exercise" />
+          <NavigationProperty Name="Friendliness1" Relationship="Self.FK_BreedInfo_Friendliness" FromRole="OverallInformation" ToRole="Friendliness" />
+          <NavigationProperty Name="Health1" Relationship="Self.FK_BreedInfo_Health" FromRole="OverallInformation" ToRole="Health" />
+          <NavigationProperty Name="Training1" Relationship="Self.FK_BreedInfo_Training" FromRole="OverallInformation" ToRole="Training" />
+        </EntityType>
+        <EntityType Name="Training">
+          <Key>
+            <PropertyRef Name="breedID" />
+          </Key>
+          <Property Name="breedID" Type="Int32" Nullable="false" />
+          <Property Name="overall" Type="Int32" Nullable="false" />
+          <Property Name="easiness" Type="Int32" Nullable="false" />
+          <Property Name="intelligence" Type="Int32" Nullable="false" />
+          <Property Name="mouthiness" Type="Int32" Nullable="false" />
+          <Property Name="preyDrive" Type="Int32" Nullable="false" />
+          <Property Name="bark" Type="Int32" Nullable="false" />
+          <Property Name="wanderlust" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OverallInformation" Relationship="Self.FK_BreedInfo_Training" FromRole="Training" ToRole="OverallInformation" />
+        </EntityType>
+        <EntityType Name="Location">
+          <Key>
+            <PropertyRef Name="locationName" />
+          </Key>
+          <Property Name="locationName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipCode" Type="Int32" Nullable="false" />
+          <Property Name="typeOfLoc" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aveRate" Type="Int32" />
+          <NavigationProperty Name="Rating" Relationship="Self.FK_Locations_Ratings" FromRole="Locations" ToRole="Ratings" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="locationName" />
+          </Key>
+          <Property Name="locationName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rating1" Type="Int32" />
+          <Property Name="review" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Location" Relationship="Self.FK_Locations_Ratings" FromRole="Ratings" ToRole="Locations" />
+        </EntityType>
+        <EntityType Name="DogInfo">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="dogName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DogBreed" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dogAge" Type="Int32" Nullable="false" />
+          <Property Name="dogWeight" Type="Int32" Nullable="false" />
+          <Property Name="dogHeight" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Personal_DogInfo" FromRole="DogInfo" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Medical">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="dogName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="medName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lastDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="dogWeight" Type="Int32" Nullable="false" />
+          <Property Name="dogHeight" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Personal_Medical" FromRole="Medical" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" />
+          <Property Name="userName" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DogInfo" Relationship="Self.FK_Personal_DogInfo" FromRole="Users" ToRole="DogInfo" />
+          <NavigationProperty Name="Medical" Relationship="Self.FK_Personal_Medical" FromRole="Users" ToRole="Medical" />
+        </EntityType>
+        <Association Name="FK_BreedInfo_Adaptability">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Adaptability" Type="Self.Adaptability" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Adaptability">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Exercise">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Exercise" Type="Self.Exercise" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Exercise">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Friendliness">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Friendliness" Type="Self.Friendliness" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Friendliness">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Health">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Health" Type="Self.Health" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Health">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BreedInfo_Training">
+          <End Role="OverallInformation" Type="Self.OverallInformation" Multiplicity="1" />
+          <End Role="Training" Type="Self.Training" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="OverallInformation">
+              <PropertyRef Name="breedID" />
+            </Principal>
+            <Dependent Role="Training">
+              <PropertyRef Name="breedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Locations_Ratings">
+          <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+          <End Role="Ratings" Type="Self.Rating" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Locations">
+              <PropertyRef Name="locationName" />
+            </Principal>
+            <Dependent Role="Ratings">
+              <PropertyRef Name="locationName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_DogInfo">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="DogInfo" Type="Self.DogInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="DogInfo">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Personal_Medical">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Medical" Type="Self.Medical" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="userID" />
+            </Principal>
+            <Dependent Role="Medical">
+              <PropertyRef Name="userID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DogProjectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adaptabilities" EntityType="Self.Adaptability" />
+          <EntitySet Name="Exercises" EntityType="Self.Exercise" />
+          <EntitySet Name="Friendlinesses" EntityType="Self.Friendliness" />
+          <EntitySet Name="Healths" EntityType="Self.Health" />
+          <EntitySet Name="OverallInformations" EntityType="Self.OverallInformation" />
+          <EntitySet Name="Trainings" EntityType="Self.Training" />
+          <EntitySet Name="Locations" EntityType="Self.Location" />
+          <EntitySet Name="Ratings" EntityType="Self.Rating" />
+          <EntitySet Name="DogInfoes" EntityType="Self.DogInfo" />
+          <EntitySet Name="Medicals" EntityType="Self.Medical" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_BreedInfo_Adaptability" Association="Self.FK_BreedInfo_Adaptability">
+            <End Role="OverallInformation" EntitySet="OverallInformations" />
+            <End Role="Adaptability" EntitySet="Adaptabilities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Exercise" Association="Self.FK_BreedInfo_Exercise">
+            <End Role="OverallInformation" EntitySet="OverallInformations" />
+            <End Role="Exercise" EntitySet="Exercises" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Friendliness" Association="Self.FK_BreedInfo_Friendliness">
+            <End Role="OverallInformation" EntitySet="OverallInformations" />
+            <End Role="Friendliness" EntitySet="Friendlinesses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Health" Association="Self.FK_BreedInfo_Health">
+            <End Role="OverallInformation" EntitySet="OverallInformations" />
+            <End Role="Health" EntitySet="Healths" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BreedInfo_Training" Association="Self.FK_BreedInfo_Training">
+            <End Role="OverallInformation" EntitySet="OverallInformations" />
+            <End Role="Training" EntitySet="Trainings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Locations_Ratings" Association="Self.FK_Locations_Ratings">
+            <End Role="Locations" EntitySet="Locations" />
+            <End Role="Ratings" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_DogInfo" Association="Self.FK_Personal_DogInfo">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="DogInfo" EntitySet="DogInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Personal_Medical" Association="Self.FK_Personal_Medical">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Medical" EntitySet="Medicals" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DogProjectModelStoreContainer" CdmEntityContainer="DogProjectEntities">
+          <EntitySetMapping Name="Adaptabilities">
+            <EntityTypeMapping TypeName="DogProjectModel.Adaptability">
+              <MappingFragment StoreEntitySet="Adaptability">
+                <ScalarProperty Name="breedID" ColumnName="breedID" />
+                <ScalarProperty Name="overall" ColumnName="overall" />
+                <ScalarProperty Name="apartment" ColumnName="apartment" />
+                <ScalarProperty Name="noviceOwners" ColumnName="noviceOwners" />
+                <ScalarProperty Name="sensitivity" ColumnName="sensitivity" />
+                <ScalarProperty Name="alone" ColumnName="alone" />
+                <ScalarProperty Name="coldWeather" ColumnName="coldWeather" />
+                <ScalarProperty Name="hotWeather" ColumnName="hotWeather" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exercises">
+            <EntityTypeMapping TypeName="DogProjectModel.Exercise">
+              <MappingFragment StoreEntitySet="Exercise">
+                <ScalarProperty Name="breedID" ColumnName="breedID" />
+                <ScalarProperty Name="overall" ColumnName="overall" />
+                <ScalarProperty Name="energyLevel" ColumnName="energyLevel" />
+                <ScalarProperty Name="intensity" ColumnName="intensity" />
+                <ScalarProperty Name="exerciseNeed" ColumnName="exerciseNeed" />
+                <ScalarProperty Name="playfulness" ColumnName="playfulness" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Friendlinesses">
+            <EntityTypeMapping TypeName="DogProjectModel.Friendliness">
+              <MappingFragment StoreEntitySet="Friendliness">
+                <ScalarProperty Name="breedID" ColumnName="breedID" />
+                <ScalarProperty Name="overall" ColumnName="overall" />
+                <ScalarProperty Name="withFamily" ColumnName="withFamily" />
+                <ScalarProperty Name="withKids" ColumnName="withKids" />
+                <ScalarProperty Name="otherDogs" ColumnName="otherDogs" />
+                <ScalarProperty Name="towardStrangers" ColumnName="towardStrangers" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Healths">
+            <EntityTypeMapping TypeName="DogProjectModel.Health">
+              <MappingFragment StoreEntitySet="Health">
+                <ScalarProperty Name="breedID" ColumnName="breedID" />
+                <ScalarProperty Name="overall" ColumnName="overall" />
+                <ScalarProperty Name="general" ColumnName="general" />
+                <ScalarProperty Name="weightGain" ColumnName="weightGain" />
+                <ScalarProperty Name="size" ColumnName="size" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OverallInformations">
+            <EntityTypeMapping TypeName="DogProjectModel.OverallInformation">
+              <MappingFragment StoreEntitySet="OverallInformation">
+                <ScalarProperty Name="breedID" ColumnName="breedID" />
+                <ScalarProperty Name="breed" ColumnName="breed" />
+                <ScalarProperty Name="adaptability" ColumnName="adaptability" />
+                <ScalarProperty Name="friendliness" ColumnName="friendliness" />
+                <ScalarProperty Name="health" ColumnName="health" />
+                <ScalarProperty Name="grooming" ColumnName="grooming" />
+                <ScalarProperty Name="training" ColumnName="training" />
+                <ScalarProperty Name="exercise" ColumnName="exercise" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trainings">
+            <EntityTypeMapping TypeName="DogProjectModel.Training">
+              <MappingFragment StoreEntitySet="Training">
+                <ScalarProperty Name="breedID" ColumnName="breedID" />
+                <ScalarProperty Name="overall" ColumnName="overall" />
+                <ScalarProperty Name="easiness" ColumnName="easiness" />
+                <ScalarProperty Name="intelligence" ColumnName="intelligence" />
+                <ScalarProperty Name="mouthiness" ColumnName="mouthiness" />
+                <ScalarProperty Name="preyDrive" ColumnName="preyDrive" />
+                <ScalarProperty Name="bark" ColumnName="bark" />
+                <ScalarProperty Name="wanderlust" ColumnName="wanderlust" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Locations">
+            <EntityTypeMapping TypeName="DogProjectModel.Location">
+              <MappingFragment StoreEntitySet="Locations">
+                <ScalarProperty Name="locationName" ColumnName="locationName" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="typeOfLoc" ColumnName="typeOfLoc" />
+                <ScalarProperty Name="aveRate" ColumnName="aveRate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="DogProjectModel.Rating">
+              <MappingFragment StoreEntitySet="Ratings">
+                <ScalarProperty Name="locationName" ColumnName="locationName" />
+                <ScalarProperty Name="rating1" ColumnName="rating" />
+                <ScalarProperty Name="review" ColumnName="review" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DogInfoes">
+            <EntityTypeMapping TypeName="DogProjectModel.DogInfo">
+              <MappingFragment StoreEntitySet="DogInfo">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="dogName" ColumnName="dogName" />
+                <ScalarProperty Name="DogBreed" ColumnName="DogBreed" />
+                <ScalarProperty Name="dogAge" ColumnName="dogAge" />
+                <ScalarProperty Name="dogWeight" ColumnName="dogWeight" />
+                <ScalarProperty Name="dogHeight" ColumnName="dogHeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medicals">
+            <EntityTypeMapping TypeName="DogProjectModel.Medical">
+              <MappingFragment StoreEntitySet="Medical">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="dogName" ColumnName="dogName" />
+                <ScalarProperty Name="medName" ColumnName="medName" />
+                <ScalarProperty Name="lastDate" ColumnName="lastDate" />
+                <ScalarProperty Name="dogWeight" ColumnName="dogWeight" />
+                <ScalarProperty Name="dogHeight" ColumnName="dogHeight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DogProjectModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userID" ColumnName="userID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
